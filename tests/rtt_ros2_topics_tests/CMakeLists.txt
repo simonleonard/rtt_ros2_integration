@@ -54,6 +54,7 @@ if(ROS_DISTRO STREQUAL "dashing")
 endif()
 
 ament_add_gtest(test_ros_transport test/test_ros_transport.cpp)
+ament_target_dependencies( test_ros_transport rtt_ros2_topics)
 orocos_configure_executable(test_ros_transport)
 target_link_libraries(test_ros_transport
   rtt_ros2::rtt_ros2
@@ -68,6 +69,7 @@ target_compile_definitions(test_ros_transport
 )
 
 ament_add_gtest(test_topics_service test/test_topics_service.cpp)
+ament_target_dependencies( test_topics_service rtt_ros2_topics)
 orocos_configure_executable(test_topics_service)
 ament_target_dependencies(test_topics_service
   rtt_ros2_topics
