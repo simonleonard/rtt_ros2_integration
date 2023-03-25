@@ -27,7 +27,7 @@ orocos_library(rtt_ros2_node
   EXPORT ${PROJECT_NAME}
   INCLUDES DESTINATION include/orocos
 )
-ament_target_dependencies(rtt_ros2_node rclcpp)
+ament_target_dependencies(rtt_ros2_node rtt_ros2 rclcpp)
 orocos_plugin(rtt_ros2_node_service
   src/rtt_ros2_node_service.cpp
 )

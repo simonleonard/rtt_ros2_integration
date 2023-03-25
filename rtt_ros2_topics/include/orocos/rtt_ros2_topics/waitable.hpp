@@ -107,7 +107,10 @@ public:
     return has_work_;
   }
 
-  void execute() override
+  std::shared_ptr<void> take_data(){ return std::shared_ptr<void>();}
+
+  
+  void execute(std::shared_ptr<void> &) override
   {
     std::lock_guard<std::mutex> lock(execute_mutex_);
     if (!func_) {return;}
