@@ -93,13 +93,14 @@ public:
     return 1u;
   }
 
-  bool add_to_wait_set(rcl_wait_set_t * wait_set) override
+  void add_to_wait_set(rcl_wait_set_t * wait_set) override
   {
     std::lock_guard<std::recursive_mutex> lock(reentrant_mutex_);
 
     const rcl_ret_t ret = rcl_wait_set_add_guard_condition(
       wait_set, &rcl_guard_condition_, nullptr);
-    return RCL_RET_OK == ret;
+    return;
+    //return RCL_RET_OK == ret;
   }
 
   bool is_ready(rcl_wait_set_t *) override
