@@ -163,7 +163,7 @@ bool Params::setOrDeclareParameter(
     RTT::log(RTT::Info) <<
       "The parameter did not exist" <<
       RTT::endlog();
-    rosnode->declare_parameter(name);
+    rosnode->declare_parameter(name, value);
   }
 
   // Update the parameter
