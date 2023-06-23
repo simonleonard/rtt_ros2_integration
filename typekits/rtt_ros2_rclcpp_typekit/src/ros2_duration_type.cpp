@@ -25,12 +25,13 @@
 
 using namespace RTT;  // NOLINT(build/namespaces)
 using namespace RTT::types;  // NOLINT(build/namespaces)
+using namespace std::chrono_literals;
 
 namespace rtt_ros2_rclcpp_typekit
 {
 
 WrappedDuration::WrappedDuration()
-: rclcpp::Duration(0) {}
+  : rclcpp::Duration(0ns) {}
 
 DurationTypeInfo::DurationTypeInfo()
 : PrimitiveTypeInfo<WrappedDuration, true>("/rclcpp/Duration")

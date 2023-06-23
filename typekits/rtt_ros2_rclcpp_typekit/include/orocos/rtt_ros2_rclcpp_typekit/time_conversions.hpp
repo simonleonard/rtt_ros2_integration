@@ -86,8 +86,10 @@ static inline double duration_to_double(const WrappedDuration & t)
 
 static inline WrappedDuration double_to_duration(const double d)
 {
-  return WrappedDuration(
-    std::chrono::duration_cast<std::chrono::nanoseconds>(std::chrono::duration<double>(d)).count());
+  std::chrono::nanoseconds dns(std::chrono::duration_cast<std::chrono::nanoseconds>(std::chrono::duration<double>(d)).count() );
+    
+  return WrappedDuration(dns);
+
 }
 
 static inline int64_t duration_to_int64(const WrappedDuration & t)
@@ -97,7 +99,8 @@ static inline int64_t duration_to_int64(const WrappedDuration & t)
 
 static inline WrappedDuration int64_to_duration(const int64_t i)
 {
-  return WrappedDuration(i);
+  std::chrono::nanoseconds dns(i);
+  return WrappedDuration(dns);
 }
 
 static inline double rmw_time_t_to_double(const rmw_time_t & t)
