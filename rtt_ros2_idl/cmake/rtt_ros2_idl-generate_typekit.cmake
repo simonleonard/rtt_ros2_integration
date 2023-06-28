@@ -64,7 +64,7 @@ function(_rtt_ros2_generate_typekit _package)
   set(${PROJECT_NAME}_RTT_ROS2_PLUGIN_DEPENDS "${${PROJECT_NAME}_RTT_ROS2_PLUGIN_DEPENDS}" PARENT_SCOPE)
 
   # Find all (selected) types in the given package.
-  set(_include_dir "${${_package}_DIR}/../../../include/${_package}")
+  set(_include_dir "${${_package}_DIR}/../../../include/${_package}/${_package}")
   normalize_path(_include_dir "${_include_dir}")
   set(_output_dir "${CMAKE_CURRENT_BINARY_DIR}/rtt_ros2_idl/${_package}/typekit")
   set(_messages "")
